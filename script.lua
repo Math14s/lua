@@ -300,7 +300,7 @@ local function sendDiscordMessage(mastery, expText)
 
     -- monta mensagem final
     local msg = string.format(
-        "Tempo online: %s\nAlchemy maes: %s\nExp Alchemy: %s\n💎Quantidade de SS: %s\n🌀Rolls de Talento: %s  |  🚩De Familia: %s\n⛏Quantidade de minerios:  IRON: %s  |  GOLD: %s  |  RUBY: %s\n\n ------------------------------",
+        "**Tempo online:** %s\nAlchemy maes: %s\nExp Alchemy: %s\n💎Quantidade de SS: %s\n🌀Rolls de Talento: %s  |  🚩De Familia: %s\n⛏Quantidade de minerios:  IRON: %s  |  GOLD: %s  |  RUBY: %s\n\n-END-",
         formatElapsed(elapsed),
         mastery,
         expText,
