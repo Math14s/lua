@@ -300,7 +300,7 @@ local function sendDiscordMessage(mastery, expText)
 
     -- monta mensagem final
     local msg = string.format(
-        "Tempo online: %s\nAlchemy maes: %s\nExp Alchemy: %s\n💎Quantidade de SS: %s\n🌀Rolls de Talento: %s  |  🚩De Familia: %s\n⛏Quantidade de minerios:  IRON: %s  |  GOLD: %s  |  RUBY: %s",
+        "Tempo online: %s\nAlchemy maes: %s\nExp Alchemy: %s\n💎Quantidade de SS: %s\n🌀Rolls de Talento: %s  |  🚩De Familia: %s\n⛏Quantidade de minerios:  IRON: %s  |  GOLD: %s  |  RUBY: %s\n\n ------------------------------",
         formatElapsed(elapsed),
         mastery,
         expText,
@@ -394,7 +394,7 @@ local function startAutoCollect()
                 for _, part in ipairs(herb:GetChildren()) do
                     if part:IsA("BasePart") or part:IsA("MeshPart") then
                         CollectHerbRemote:FireServer(part)
-                        task.wait(0.05)
+                        task.wait(0.005)
                     end
                 end
             end
@@ -504,7 +504,7 @@ btnAttractTP.MouseButton1Click:Connect(function()
     -- Teleporta para cada planta
     for _, cf in pairs(plantPositions) do
         hrp.CFrame = cf
-        task.wait(1.5) -- cooldown de teleport
+        task.wait(2.5) -- cooldown de teleport
     end
     -- Teleporta para zona do vulcão
     hrp.CFrame = volcanoCFrame
