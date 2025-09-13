@@ -300,7 +300,7 @@ local function sendDiscordMessage(mastery, expText)
 
     -- monta mensagem final
     local msg = string.format(
-        "**Tempo online:** %s\nAlchemy maes: %s\nExp Alchemy: %s\n💎Quantidade de SS: %s\n🌀Rolls de Talento: %s  |  🚩De Familia: %s\n⛏Quantidade de minerios:  IRON: %s  |  GOLD: %s  |  RUBY: %s\n\n-END-",
+        "**Tempo online:** %s\nAlchemy %s\nAlchemy %s\n💎Quantidade de SS: %s\n🌀Rolls de Talento: %s  |  🚩De Familia: %s\n⛏Quantidade de minerios:  IRON: %s  |  GOLD: %s  |  RUBY: %s\n\n**-END-**",
         formatElapsed(elapsed),
         mastery,
         expText,
@@ -326,7 +326,7 @@ end
 -- Loop que envia a cada 5 segundos (teste)
 task.spawn(function()
     while true do
-        task.wait(10)
+        task.wait(300)
         sendDiscordMessage(masteryTxt.Text, expTxt.Text)
     end
 end)
