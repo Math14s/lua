@@ -390,17 +390,34 @@ local function startAutoCollect()
     autoCollect = true
     autoCollectThread = task.spawn(function()
         while autoCollect do
+            -- agrupar por nome
+            local groups = {}
             for _, herb in ipairs(HerbsFolder:GetChildren()) do
-                for _, part in ipairs(herb:GetChildren()) do
-                    if part:IsA("BasePart") or part:IsA("MeshPart") then
-                        CollectHerbRemote:FireServer(part)
+                local groupName = herb.Name
+                groups[groupName] = groups[groupName] or {}
+                table.insert(groups[groupName], herb)
+            end
+
+            -- coletar por grupo
+            for groupName, group in pairs(groups) do
+                -- coleta instantânea de todas as partes do grupo
+                for _, herb in ipairs(group) do
+                    for _, part in ipairs(herb:GetChildren()) do
+                        if part:IsA("BasePart") or part:IsA("MeshPart") then
+                            CollectHerbRemote:FireServer(part)
+                        end
                     end
                 end
+                -- cooldown entre grupos
+                task.wait(0.5)
             end
-            task.wait(0.05)
+
+            -- pausa entre ciclos completos de varredura
+            task.wait(0.1)
         end
     end)
 end
+
 local function stopAutoCollect() autoCollect = false end
 
 local function setAnchor()
