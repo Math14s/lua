@@ -413,7 +413,7 @@ local function startAutoCollect()
             end
 
             -- pausa entre ciclos completos de varredura
-            task.wait(1.5)
+            task.wait(10)
         end
     end)
 end
