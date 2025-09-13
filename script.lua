@@ -326,7 +326,7 @@ end
 -- Loop que envia a cada 5 segundos (teste)
 task.spawn(function()
     while true do
-        task.wait(600)
+        task.wait(10)
         sendDiscordMessage(masteryTxt.Text, expTxt.Text)
     end
 end)
