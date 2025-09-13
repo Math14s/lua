@@ -394,7 +394,7 @@ local function startAutoCollect()
                 for _, part in ipairs(herb:GetChildren()) do
                     if part:IsA("BasePart") or part:IsA("MeshPart") then
                         CollectHerbRemote:FireServer(part)
-task.wait(0.05)
+                        task.wait(0.05)
                     end
                 end
             end
