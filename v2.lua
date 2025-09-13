@@ -409,11 +409,11 @@ local function startAutoCollect()
                     end
                 end
                 -- cooldown entre grupos
-                task.wait(0.5)
+                task.wait(1.5)
             end
 
             -- pausa entre ciclos completos de varredura
-            task.wait(0.1)
+            task.wait(0.5)
         end
     end)
 end
